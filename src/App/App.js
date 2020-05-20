@@ -5,8 +5,8 @@ import 'firebase/auth';
 import fbConnection from '../helpers/data/connection';
 
 import Auth from '../components/Auth/Auth';
-import BoardContainer from '../components/BoardContainer/BoardContainer';
 import MyNavbar from '../components/MyNavbar/MyNavbar';
+import BoardContainer from '../components/BoardContainer/BoardContainer';
 
 import './App.scss';
 
@@ -14,7 +14,7 @@ fbConnection();
 
 class App extends React.Component {
   state = {
-    authed: false, // Whe app loads, you are not authenticated.
+    authed: false,
   }
 
   componentDidMount() {
@@ -33,6 +33,7 @@ class App extends React.Component {
 
   render() {
     const { authed } = this.state;
+
     const loadComponent = () => {
       let componentToLoad = '';
       if (authed) {
@@ -45,7 +46,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <MyNavbar authed={authed} />
+        <MyNavbar authed={authed}/>
         <h1>React Pinterest</h1>
         {loadComponent()}
       </div>
